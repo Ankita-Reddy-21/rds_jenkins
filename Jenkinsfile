@@ -1,4 +1,4 @@
-@Library('devops-shared-library') _
+@Library('jenkins-shared-library') _
 
 pipeline {
 
