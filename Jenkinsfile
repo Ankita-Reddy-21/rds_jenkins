@@ -43,17 +43,11 @@ pipeline {
             }
         }
 
-        stage('Kubernetes Deploy') {
+        stage('Docker Deploy') {
             steps {
-                k8sDeploy(
-                    'rds-jenkins',
-                    'rds-jenkins',
-                    "${IMAGE}:${TAG}",
-                    'default'
-                )
+                dockerDeploy("${IMAGE}", "${TAG}")
             }
         }
-    }
 
     post {
         success {
