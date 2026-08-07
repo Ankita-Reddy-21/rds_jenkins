@@ -1,4 +1,3 @@
-```groovy
 @Library('devops-shared-library') _
 
 pipeline {
@@ -8,7 +7,7 @@ pipeline {
     }
 
     environment {
-        IMAGE = 'your-dockerhub-username/myapp'
+        IMAGE = 'YOUR_DOCKERHUB_USERNAME/rds-jenkins'
         TAG   = "${BUILD_NUMBER}"
     }
 
@@ -47,14 +46,22 @@ pipeline {
         stage('Kubernetes Deploy') {
             steps {
                 k8sDeploy(
-                    'myapp',
-                    'myapp',
+                    'rds-jenkins',
+                    'rds-jenkins',
                     "${IMAGE}:${TAG}",
                     'default'
                 )
             }
         }
     }
-}
-```
 
+    post {
+        success {
+            echo "Deployment successful: ${IMAGE}:${TAG}"
+        }
+
+        failure {
+            echo "Pipeline failed."
+        }
+    }
+}
