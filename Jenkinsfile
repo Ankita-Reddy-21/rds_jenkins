@@ -7,7 +7,7 @@ agent {
 }
 
 environment {
-    IMAGE = 'YOUR_DOCKERHUB_USERNAME/rds-jenkins'
+    IMAGE = 'ssankureddy392/rds-jenkins'
     TAG   = "${BUILD_NUMBER}"
 }
 
