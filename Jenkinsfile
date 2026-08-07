@@ -2,7 +2,6 @@
 
 pipeline {
 
-```
 agent {
     label 'docker-agent'
 }
@@ -63,6 +62,5 @@ post {
         echo "Pipeline failed."
     }
 }
-```
 
 }
